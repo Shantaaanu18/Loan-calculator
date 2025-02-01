@@ -1,0 +1,98 @@
+import React, { useState, useEffect } from "react";
+import { IoChevronBackSharp } from 'react-icons/io5'; //icons used to add in UI
+import { BsThreeDotsVertical } from "react-icons/bs";
+import "./Loan.css";
+
+
+imported for building the component
+useState is used to manage the component
+useEffect is used to perform side-effects
+
+
+const LoanCalculator = () => {
+  const [loanAmount, setLoanAmount] = useState(14500000);
+  const [loanPeriod, setLoanPeriod] = useState(12);
+  const [installment, setInstallment] = useState(150000);
+
+loanAmount, loanPeriod, installments :representts the total amount of loan that is needed to display in UI
+setloanAmount, setloanPeriod, setinstallments = used to update the values 
+
+
+  const maxLoan = 17484500;
+  const minLoan = 1000000;
+  const minPeriod = 6;
+  const maxPeriod = 18;
+
+these const represents the boundaries and values of variable that is may be used to update the value.
+
+
+  useEffect(() => {
+    const calculatedInstallment = Math.round((loanAmount / loanPeriod) );
+    setInstallment(calculatedInstallment);
+  }, [loanAmount, loanPeriod]);
+
+useEffect hooks runs every time the loanamount or loanperiod state changes
+setInstallment updates the installment state with new value
+math.round() gets the nearest whole number
+
+
+
+  return (
+    <div className="container">
+      <div className="loan-calculator">
+        <IoChevronBackSharp className="back-icon" />
+        
+        <h2>Loan Calculator</h2>
+        <BsThreeDotsVertical className="icon" />
+
+        <div className="funding-box">
+          <p>Maximum Funding</p>
+          <h1>Rp {maxLoan.toLocaleString()}</h1>
+          <p>Honda ADV 150 CBS 2023</p>
+          <p className="p">2022 </p>
+        </div>
+
+        <div className="slider-container">
+          <label>Loan Amount</label>
+          <h3>Rp {loanAmount.toLocaleString()}</h3>
+          <input
+            type="range" //for slider using the input type as range 
+            min={minLoan} 
+            max={maxLoan}
+            value={loanAmount}
+            onChange={(e) => setLoanAmount(Number(e.target.value))}
+          /> //The value of the slider is linked to the loanAmount state, and onChange updates the        loanAmount state when the user moves the slider
+        </div>
+
+
+        <div className="slider-container">
+          <label>Loan Period</label>
+          <h3>{loanPeriod} Months</h3>
+          <input
+            type="range"
+            min={minPeriod}
+            max={maxPeriod}
+            value={loanPeriod}
+            onChange={(e) => setLoanPeriod(Number(e.target.value))}
+          />
+        </div>
+
+        <div className="installment-box">
+          <p>Estimated monthly installment</p>
+          <h2>Rp {installment.toLocaleString()}</h2>
+          <p>
+            Installment fees may change according to the verification of the vehicle’s condition.
+          </p>
+        </div>
+
+
+This section displays the estimated monthly installment formatted as a currency.
+
+
+        <button className="apply-btn">APPLY LOAN</button>
+      </div>
+    </div>
+  );
+};
+
+export default LoanCalculator;
