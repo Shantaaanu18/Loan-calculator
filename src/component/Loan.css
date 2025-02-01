@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ecf0f1;
+    padding-top:50px
+  }
+  
+  .loan-calculator {
+    width: 320px;
+    background: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+    display: block;
+  }
+  
+  .funding-box, .installment-box {
+    background: #34495e;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .slider-container {
+    margin-bottom: 15px;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+  }
+  
+  .apply-btn {
+    background: #1abc9c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-btn:hover {
+    background: #16a085;
+  }
+  .loan-calculator {
+    position: relative;
+    padding: 20px;
+    width: 300px;
+    color: white;
+    
+  }
+  
+  .back-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    padding-top: 20px;
+
+  }
+  
+  .back-icon:hover {
+    color: #007bff; /* Change color on hover */
+  }
+  .icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    padding-top: 20px;
+  }
+  .p{
+    left: 20px;
+padding-right: 150px;
+  }
